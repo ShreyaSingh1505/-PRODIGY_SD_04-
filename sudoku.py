@@ -1,8 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
 
-# ----------------- SUDOKU LOGIC -----------------
-
 def is_valid(board, row, col, num):
     """Check if num can be placed at board[row][col]"""
     # Check row and column
@@ -32,8 +30,6 @@ def solve_sudoku(board):
                         board[row][col] = 0  # Backtrack
                 return False  # Trigger backtracking
     return True  # Board is completely filled and valid
-
-# ----------------- GUI LOGIC -----------------
 
 def get_board():
     """Read values from the grid and build the board"""
@@ -65,9 +61,9 @@ def solve():
     if board:
         if solve_sudoku(board):
             fill_board(board)
-            messagebox.showinfo("Solved", "✅ Puzzle solved successfully!")
+            messagebox.showinfo("Solved", "Puzzle solved successfully!")
         else:
-            messagebox.showerror("Unsolvable", "⚠️ No valid solution exists.")
+            messagebox.showerror("Unsolvable", " No valid solution exists.")
 
 def clear():
     """Clear all cells"""
@@ -81,7 +77,6 @@ def restrict_input(event, row, col):
     if not val.isdigit() or not (1 <= int(val) <= 9):
         cells[row][col].delete(0, tk.END)
 
-# ----------------- GUI SETUP -----------------
 
 root = tk.Tk()
 root.title("🧩 Sudoku Solver")
@@ -89,7 +84,7 @@ root.configure(bg="#f7f7f7")
 
 cells = []
 
-# Create the Sudoku grid
+# Creating the Sudoku grid
 grid_frame = tk.Frame(root, bg="black", padx=2, pady=2)
 grid_frame.pack(pady=20)
 
@@ -139,3 +134,4 @@ clear_btn.grid(row=0, column=1, padx=10)
 
 # Run the application
 root.mainloop()
+
