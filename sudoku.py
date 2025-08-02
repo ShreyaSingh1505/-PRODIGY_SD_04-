@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 
 def is_valid(board, row, col, num):
-    """Check if num can be placed at board[row][col]"""
+   
     # Check row and column
     for i in range(9):
         if board[row][i] == num or board[i][col] == num:
@@ -18,7 +18,7 @@ def is_valid(board, row, col, num):
     return True
 
 def solve_sudoku(board):
-    """Solve the Sudoku board using backtracking"""
+    
     for row in range(9):
         for col in range(9):
             if board[row][col] == 0:
@@ -32,7 +32,7 @@ def solve_sudoku(board):
     return True  # Board is completely filled and valid
 
 def get_board():
-    """Read values from the grid and build the board"""
+    
     board = []
     for row in range(9):
         row_data = []
@@ -49,14 +49,14 @@ def get_board():
     return board
 
 def fill_board(board):
-    """Update the GUI with values from the solved board"""
+   
     for row in range(9):
         for col in range(9):
             cells[row][col].delete(0, tk.END)
             cells[row][col].insert(0, str(board[row][col]))
 
 def solve():
-    """Handle solve button click"""
+   
     board = get_board()
     if board:
         if solve_sudoku(board):
@@ -66,13 +66,13 @@ def solve():
             messagebox.showerror("Unsolvable", " No valid solution exists.")
 
 def clear():
-    """Clear all cells"""
+    
     for row in range(9):
         for col in range(9):
             cells[row][col].delete(0, tk.END)
 
 def restrict_input(event, row, col):
-    """Allow only single digit between 1 and 9"""
+    
     val = cells[row][col].get()
     if not val.isdigit() or not (1 <= int(val) <= 9):
         cells[row][col].delete(0, tk.END)
@@ -134,4 +134,5 @@ clear_btn.grid(row=0, column=1, padx=10)
 
 # Run the application
 root.mainloop()
+
 
