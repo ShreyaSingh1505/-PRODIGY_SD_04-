@@ -79,7 +79,7 @@ def restrict_input(event, row, col):
 
 
 root = tk.Tk()
-root.title("🧩 Sudoku Solver")
+root.title(" Sudoku Solver")
 root.configure(bg="#f7f7f7")
 
 cells = []
@@ -134,5 +134,6 @@ clear_btn.grid(row=0, column=1, padx=10)
 
 # Run the application
 root.mainloop()
+
 
 
